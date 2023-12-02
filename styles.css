@@ -79,24 +79,23 @@ dl{
     background-color: var(--white);
 }
 
-.trending h3{
+.scroll{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width:800px;
+    height: auto;
+    overflow: scroll;
+}
+section.trending h3{
     position: relative;
     top: 340px;
     padding: 5px;
     background-color: var(--white);
 }
 
-.trending{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 5px 1fr;
-    width:800px;
-    overflow: scroll;
-}
-.trending h2{
+section.trending h2{
     display: grid;
     grid-column:1/-1;
-    position: relative;
     top:60px;
 }
 [href="#moretrending"], [href="#allyourplaylists"], [href="#morecurated"]{
@@ -154,4 +153,40 @@ audio{
 }
 audio::-webkit-media-controls-enclosure {
     opacity:50%;
+}
+
+@media (max-width:500px) {
+    body{
+        width: 375px;
+        margin:0 auto;
+    }
+    ul {
+        overflow: hidden;
+        background-color: none;
+
+        max-height: 1rem;
+        transition: .2s ease-out;
+    }
+    ul:hover{
+        overflow: visible;
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:1rem;
+    }
+    .scroll{
+        width:360px;
+    }
+    .curated, section.all{
+        width:375px;
+        height:auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        overflow:scroll;
+    }
+    .curated section, .all section{
+        width: 150px;
+    }
+    .playlists{
+        display: block;
+    }
 }
